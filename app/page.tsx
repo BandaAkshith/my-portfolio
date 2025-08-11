@@ -91,6 +91,14 @@ export default function Portfolio() {
     { name: "Firebase", level: 72, icon: "🔥" },
   ]
 
+  const certifications = [
+    "Introduction to Artificial Intelligence – Coursera (2023)",
+    "Data Structures – Coursera (2023)",
+    "Introduction to Deep Learning with Keras – Coursera (2023)",
+    "Databases & SQL for Data Science with Python – Coursera (2023)",
+    "Introduction to TensorFlow for AI, ML, and DL – Coursera (2023)",
+  ]
+
   const projects = [
     {
       title: "Portfolio Website",
@@ -100,7 +108,7 @@ export default function Portfolio() {
       status: "2025",
       gradient: "from-sky-500 to-blue-600",
       githubUrl: "https://github.com/BandaAkshith/my-portfolio",
-      liveUrl: window.location.origin,
+      liveUrl: typeof window !== "undefined" ? window.location.origin : "https://akshith-portfolio.vercel.app",
     },
     {
       title: "Vision 3D – Multi-View 2D to 3D Reconstruction",
@@ -109,34 +117,26 @@ export default function Portfolio() {
       tech: ["Python", "Instant-NGP (NeRF)", "FastAPI", "WebGL"],
       status: "Ongoing – 2025",
       gradient: "from-blue-500 to-cyan-500",
-      githubUrl: "https://github.com/BandaAkshith/Vision3D-NeRF",
+      githubUrl: "https://github.com/BandaAkshith/vision-3d",
     },
     {
       title: "Retrieval-Augmented Generation (RAG) QA Bot",
       description:
-        "Domain-adaptive QA system using OpenAI and PineconeDB for real-time vector-based retrieval, trained on SQuAD dataset.",
+        "Domain-adaptive QA system using OpenAI and PineconeDB for real-time vector-based retrieval. Trained on SQuAD dataset with scalable full-stack interface.",
       tech: ["OpenAI API", "PineconeDB", "FastAPI", "React"],
       status: "2024",
-      gradient: "from-cyan-500 to-sky-500",
-      githubUrl: "https://github.com/BandaAkshith/RAG-QA-Bot",
+      gradient: "from-cyan-500 to-teal-500",
+      githubUrl: "https://github.com/BandaAkshith/rag-qa-bot",
     },
     {
       title: "Mental Health Chatbot",
       description:
-        "AI-powered chatbot for real-time emotional support using GPT and NLP techniques with memory-based response refinement.",
+        "AI-powered chatbot for real-time emotional support using GPT and NLP techniques. Features memory-based response refinement for seamless mental wellness experience.",
       tech: ["OpenAI API", "Flask", "Firebase"],
       status: "2024",
-      gradient: "from-blue-600 to-teal-500",
-      githubUrl: "https://github.com/BandaAkshith/Mental-Health-Chatbot",
+      gradient: "from-teal-500 to-blue-500",
+      githubUrl: "https://github.com/BandaAkshith/mental-health-chatbot",
     },
-  ]
-
-  const certifications = [
-    "Introduction to Artificial Intelligence – Coursera (2023)",
-    "Data Structures – Coursera (2023)",
-    "Introduction to Deep Learning with Keras – Coursera (2023)",
-    "Databases & SQL for Data Science with Python – Coursera (2023)",
-    "Introduction to TensorFlow for AI, ML, and DL – Coursera (2023)",
   ]
 
   return (
@@ -219,7 +219,11 @@ export default function Portfolio() {
               whileHover={{ scale: 1.05 }}
               onMouseEnter={() => setCursorVariant("hover")}
               onMouseLeave={() => setCursorVariant("default")}
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }
+              }}
             >
               AKB
             </motion.button>
@@ -316,6 +320,7 @@ export default function Portfolio() {
                 onMouseEnter={() => setCursorVariant("hover")}
                 onMouseLeave={() => setCursorVariant("default")}
                 onClick={() =>
+                  typeof window !== "undefined" &&
                   window.open("https://drive.google.com/file/d/1zMDmBpNa8jr_1TbCHwC1x05xOSdvyZ_D/view", "_blank")
                 }
               >
@@ -809,6 +814,7 @@ export default function Portfolio() {
                 onMouseEnter={() => setCursorVariant("hover")}
                 onMouseLeave={() => setCursorVariant("default")}
                 onClick={() =>
+                  typeof window !== "undefined" &&
                   window.open("https://drive.google.com/file/d/1zMDmBpNa8jr_1TbCHwC1x05xOSdvyZ_D/view", "_blank")
                 }
               >
