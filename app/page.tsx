@@ -64,25 +64,43 @@ export default function Portfolio() {
     }
   }, [])
 
-  const skills = [
+  const programmingLanguages = [
     { name: "Python", level: 90, icon: "🐍" },
     { name: "JavaScript", level: 80, icon: "⚡" },
+    { name: "SQL", level: 75, icon: "🗄️" },
+  ]
+
+  const webTechnologies = [
     { name: "React.js", level: 75, icon: "⚛️" },
+    { name: "Node.js", level: 70, icon: "🟢" },
+    { name: "HTML5/CSS3", level: 85, icon: "🌐" },
+    { name: "FastAPI", level: 80, icon: "🚀" },
+  ]
+
+  const aiMlFrameworks = [
     { name: "TensorFlow", level: 85, icon: "🧠" },
     { name: "PyTorch", level: 82, icon: "🔥" },
-    { name: "FastAPI", level: 80, icon: "🚀" },
-    { name: "SQL", level: 75, icon: "🗄️" },
+    { name: "Scikit-learn", level: 78, icon: "📊" },
     { name: "OpenCV", level: 80, icon: "👁️" },
+  ]
+
+  const toolsAndDatabases = [
+    { name: "Git", level: 85, icon: "📝" },
+    { name: "MySQL", level: 75, icon: "🗄️" },
+    { name: "PineconeDB", level: 70, icon: "🌲" },
+    { name: "Firebase", level: 72, icon: "🔥" },
   ]
 
   const projects = [
     {
-      title: "Modern Portfolio Website",
+      title: "Portfolio Website",
       description:
         "Exceptional responsive portfolio website with fluid animations and advanced mouse interactions. Built with Next.js, Framer Motion, and Tailwind CSS for optimal performance.",
       tech: ["Next.js", "React", "Framer Motion", "Tailwind CSS", "TypeScript"],
       status: "2025",
       gradient: "from-sky-500 to-blue-600",
+      githubUrl: "https://github.com/BandaAkshith/my-portfolio",
+      liveUrl: window.location.origin,
     },
     {
       title: "Vision 3D – Multi-View 2D to 3D Reconstruction",
@@ -91,6 +109,7 @@ export default function Portfolio() {
       tech: ["Python", "Instant-NGP (NeRF)", "FastAPI", "WebGL"],
       status: "Ongoing – 2025",
       gradient: "from-blue-500 to-cyan-500",
+      githubUrl: "https://github.com/BandaAkshith/Vision3D-NeRF",
     },
     {
       title: "Retrieval-Augmented Generation (RAG) QA Bot",
@@ -99,6 +118,7 @@ export default function Portfolio() {
       tech: ["OpenAI API", "PineconeDB", "FastAPI", "React"],
       status: "2024",
       gradient: "from-cyan-500 to-sky-500",
+      githubUrl: "https://github.com/BandaAkshith/RAG-QA-Bot",
     },
     {
       title: "Mental Health Chatbot",
@@ -107,6 +127,7 @@ export default function Portfolio() {
       tech: ["OpenAI API", "Flask", "Firebase"],
       status: "2024",
       gradient: "from-blue-600 to-teal-500",
+      githubUrl: "https://github.com/BandaAkshith/Mental-Health-Chatbot",
     },
   ]
 
@@ -374,35 +395,136 @@ export default function Portfolio() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-semibold mb-8 text-white">Technical Skills</h3>
-              <div className="space-y-6">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="group"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="flex items-center text-white font-medium">
-                        <span className="mr-2 text-lg">{skill.icon}</span>
-                        {skill.name}
-                      </span>
-                      <span className="text-gray-400">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
-                      <motion.div
-                        className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
+              <h3 className="text-3xl font-semibold mb-12 text-white text-center">Technical Skills</h3>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Programming Languages */}
+                <div className="space-y-6">
+                  <h4 className="text-xl font-medium text-blue-400 mb-4">Programming Languages</h4>
+                  {programmingLanguages.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="group"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="flex items-center text-white font-medium">
+                          <span className="mr-2 text-lg">{skill.icon}</span>
+                          {skill.name}
+                        </span>
+                        <span className="text-gray-400">{skill.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Web Technologies */}
+                <div className="space-y-6">
+                  <h4 className="text-xl font-medium text-cyan-400 mb-4">Web Technologies</h4>
+                  {webTechnologies.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="group"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="flex items-center text-white font-medium">
+                          <span className="mr-2 text-lg">{skill.icon}</span>
+                          {skill.name}
+                        </span>
+                        <span className="text-gray-400">{skill.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* AI/ML Frameworks */}
+                <div className="space-y-6">
+                  <h4 className="text-xl font-medium text-teal-400 mb-4">AI/ML Frameworks</h4>
+                  {aiMlFrameworks.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="group"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="flex items-center text-white font-medium">
+                          <span className="mr-2 text-lg">{skill.icon}</span>
+                          {skill.name}
+                        </span>
+                        <span className="text-gray-400">{skill.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Tools & Databases */}
+                <div className="space-y-6">
+                  <h4 className="text-xl font-medium text-sky-400 mb-4">Tools & Databases</h4>
+                  {toolsAndDatabases.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="group"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="flex items-center text-white font-medium">
+                          <span className="mr-2 text-lg">{skill.icon}</span>
+                          {skill.name}
+                        </span>
+                        <span className="text-gray-400">{skill.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                        <motion.div
+                          className="h-full bg-gradient-to-r from-sky-500 to-blue-500 rounded-full"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                          viewport={{ once: true }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -458,21 +580,28 @@ export default function Portfolio() {
                         </span>
                       ))}
                     </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="bg-white/5 border-white/20 text-white hover:bg-white/10 transition-all duration-300"
-                      onClick={() => {
-                        if (project.title === "Modern Portfolio Website") {
-                          window.open(window.location.origin, "_blank")
-                        } else {
-                          // For other projects, you can add specific URLs here
-                          console.log(`Opening ${project.title} project`)
-                        }
-                      }}
-                    >
-                      Learn More <ExternalLink className="w-4 h-4 ml-2" />
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="bg-white/5 border-white/20 text-white hover:bg-white/10 transition-all duration-300 flex-1"
+                        onClick={() => window.open(project.githubUrl, "_blank")}
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        GitHub
+                      </Button>
+                      {project.liveUrl && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="bg-blue-500/20 border-blue-400/30 text-blue-300 hover:bg-blue-500/30 transition-all duration-300 flex-1"
+                          onClick={() => window.open(project.liveUrl, "_blank")}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
