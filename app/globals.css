@@ -145,3 +145,41 @@
   will-change: transform;
   transform-origin: center;
 }
+
+/* Custom scrollbar styles matching portfolio theme */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* Dark mode scrollbar adjustments */
+.dark ::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark html {
+  scrollbar-width: none;
+}
