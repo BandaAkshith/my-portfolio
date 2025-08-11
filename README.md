@@ -63,6 +63,45 @@ A modern, responsive portfolio website showcasing the skills, projects, and expe
 - **Build Optimization**: Static generation with SSR compatibility
 - **Performance**: Optimized animations, lazy loading, and code splitting
 
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- pnpm (recommended) or npm package manager
+
+### Installation
+
+1. **Clone the repository**
+   \`\`\`bash
+   git clone https://github.com/BandaAkshith/my-portfolio.git
+   cd my-portfolio
+   \`\`\`
+
+2. **Install dependencies**
+   \`\`\`bash
+   pnpm install
+   # or
+   npm install
+   \`\`\`
+
+3. **Run the development server**
+   \`\`\`bash
+   pnpm dev
+   # or
+   npm run dev
+   \`\`\`
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+### Build for Production
+
+\`\`\`bash
+pnpm build && pnpm start
+# or
+npm run build && npm start
+\`\`\`
+
 ## 🌟 Performance Optimizations
 
 - **Smooth Animations**: 60fps animations with GPU acceleration and optimized spring physics
@@ -71,6 +110,10 @@ A modern, responsive portfolio website showcasing the skills, projects, and expe
 - **Invisible Scrollbar**: Clean aesthetic while maintaining scroll functionality
 - **Code Splitting**: Automatic optimization with Next.js App Router
 - **SEO Optimized**: Comprehensive meta tags and structured data
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
 

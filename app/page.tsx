@@ -179,7 +179,7 @@ export default function Portfolio() {
       />
 
       {/* Animated Background */}
-      <motion.div className="fixed inset-0 opacity-30 will-change-transform" style={{ y: backgroundY }}>
+      <div className="fixed inset-0 opacity-30 will-change-transform">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-cyan-900/20 to-sky-900/20" />
         <div className="absolute inset-0">
           {[...Array(25)].map((_, i) => (
@@ -203,7 +203,7 @@ export default function Portfolio() {
             />
           ))}
         </div>
-      </motion.div>
+      </div>
 
       {/* Navigation */}
       <motion.nav
